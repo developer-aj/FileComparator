@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $('#compare').mergely({
-	   width: 'auto',
-		  height: 'auto', // containing div must be given a height
-		  cmsettings: { readOnly: true },
+        width: 'auto',
+        height: 'auto', // containing div must be given a height
+        cmsettings: { readOnly: true },
     });
-	var lhs_url = 'lhs.txt';
-	var rhs_url = 'rhs.txt'
+	var lhs_url = 'moons_lhs.txt';
+	var rhs_url = 'moons_rhs.txt'
 	$.ajax({
         type: 'GET', async: true, dataType: 'text',
         url: lhs_url,
@@ -50,12 +50,4 @@ $(document).ready(function () {
 		a.setAttribute('href', datauri);
 		//a.innerHTML = "content ready.";
 	}
-	
-    document.getElementById('save-lhs').addEventListener('mouseover', function() { download_content(this, "lhs"); }, false);
-    
-    document.getElementById('save-rhs').addEventListener('mouseover', function() { download_content(this, "lhs"); }, false);
-    document.getElementById('ignorews').addEventListener('change', function() {
-        $('#compare').mergely('options', { ignorews: this.checked });
-			}, false);
-
-    });
+});
