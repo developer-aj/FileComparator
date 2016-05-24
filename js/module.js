@@ -33,6 +33,6 @@ $(document).ready(function () {
     $('#compare').mergely({
         width: 'auto',
         height: 'auto', // containing div must be given a height
-        cmsettings: { readOnly: true },
+        cmsettings: { readOnly: false },
     });
 });

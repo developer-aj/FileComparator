@@ -18,27 +18,24 @@
     <script src="js/module.js"></script>
     
     <style>
-        .col-centered {
-            float: none;
-            margin: 0 auto;
-        }
-        .jumbo-centered {
-            text-align: center;
-        }
+        
     </style>
 </head>
 <body ng-app="fileCompare">
-    <div class="container" ng-controller="ctrl">
-        <div class="row">
-            <div class="col-sm-12">
-                <input type="file" onchange="angular.element(this).scope().getFile1(this)"/>
-                <input type="file" onchange="angular.element(this).scope().getFile2(this)"/>
-                <input type="button" ng-click="compare()" placeholder/>
-            </div>
+    <div class="page-header">
+        <div class="btn-group" role="group" aria-label="...">
+            <input class="btn btn-default-outline navbar-btn" type="file" onchange="angular.element(this).scope().getFile1(this)" placeholder="File 1"/>
+            <input class="btn btn-default-outline navbar-btn" type="file" onchange="angular.element(this).scope().getFile2(this)" placeholder="File 2"/>
+            <input class="btn btn-primary navbar-btn" type="button" ng-click="compare()" value="Compare"/>
         </div>
     </div>
-    <div id="mergely-resizer" style="height:500px">
-        <div id="compare"></div>
+    <div class="container-fluid" ng-controller="ctrl">
+        
+        <div class="row">
+            <div class="col-sm-12" id="mergely-resizer" style="height:500px;width:99%">
+                <div id="compare"></div>
+            </div>        
+        </div>
     </div>
 </body>
 </html>
