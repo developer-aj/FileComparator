@@ -5,11 +5,14 @@ app.controller('ctrl', function($scope) {
     
     $scope.getFile1 = function(obj){
         $scope.file1 = obj.files[0];
-        console.log("sd");
+        if($scope.file1 != null && $scope.file2!=null)
+            $('#compareButton').removeAttr('disabled');
     }
     
     $scope.getFile2 = function(obj){
         $scope.file2 = obj.files[0];
+        if($scope.file1 != null && $scope.file2!=null)
+            $('#compareButton').removeAttr('disabled');
     }
     
     $scope.compare = function(){
@@ -35,4 +38,5 @@ $(document).ready(function () {
         height: 'auto', // containing div must be given a height
         cmsettings: { readOnly: false },
     });
+    $('#compareButton').attr('disabled',true);
 });
