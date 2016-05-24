@@ -14,7 +14,8 @@
     <script src="js/codemirror.min.js"></script>
     <script src="js/mergely.min.js"></script>
     <script src="js/searchcursor.js"></script>
-    <script src="js/script.js"></script>
+    <!--<script src="js/script.js"></script>-->
+    <script src="js/module.js"></script>
     
     <style>
         .col-centered {
@@ -26,21 +27,13 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
+<body ng-app="fileCompare">
+    <div class="container" ng-controller="ctrl">
         <div class="row">
             <div class="col-sm-12">
-                <form>
-                    <input id="lhs_file" type="file">
-                    <input id="rhs_file" type="file">
-                    <input id="submit" type="submit">
-                </form>
-            </div>
-            <div class="col-sm-12">
-                <table  style="width: 100%;"><tr>
-		<td style="width: 50%;"><tt id="path-lhs"></tt> &nbsp; <a id="save-lhs" class="save-link" href="#">save</a></td>
-		<td style="width: 50%;"><tt id="path-rhs"></tt> &nbsp; <a id="save-rhs" class="save-link" href="#">save</a></td>
-	</tr></table>
+                <input type="file" onchange="angular.element(this).scope().getFile1(this)"/>
+                <input type="file" onchange="angular.element(this).scope().getFile2(this)"/>
+                <input type="button" ng-click="compare()" placeholder/>
             </div>
         </div>
     </div>
